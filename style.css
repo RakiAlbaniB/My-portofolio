@@ -1,0 +1,45 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&family=Shadows+Into+Light&display=swap');
+
+/* Custom scrollbar for webkit browsers */
+.dark ::-webkit-scrollbar {
+    width: 12px;
+}
+.dark ::-webkit-scrollbar-track {
+    background: #1F2937;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background-color: #4B5563;
+    border-radius: 20px;
+    border: 3px solid #1F2937;
+}
+/* Custom scrollbar for firefox */
+.dark {
+  scrollbar-color: #4B5563 #1F2937;
+  scrollbar-width: thin;
+}
+/* Animation classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tambahkan ini di paling bawah file style.css Anda */
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}

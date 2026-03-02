@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Raki Albani - Fresh Graduate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Konfigurasi Tailwind CSS
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'bitcount': ['"Bitcount Prop Single Ink"', 'sans-serif'],
+                        'shadows': ['"Shadows Into Light"', 'cursive']
+                    },
+                    colors: {
+                        'primary': '#EC4899', // Pink 500
+                        'secondary': '#111827', // Gray 900
+                        'light-bg': '#F9FAFB', // Gray 50
+                        'dark-bg': '#1F2937', // Gray 800
+                        'dark-secondary': '#374151' // Gray 700
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-light-bg dark:bg-dark-bg text-secondary dark:text-gray-300 transition-colors duration-300">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-light-bg/80 dark:bg-dark-bg/80 backdrop-blur-sm shadow-md transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">My Portofolio</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" data-key="nav_home" class="hover:text-primary transition-colors">Home</a>
+                <a href="#about" data-key="nav_about" class="hover:text-primary transition-colors">Tentang</a>
+                <a href="#skills" data-key="nav_skills" class="hover:text-primary transition-colors">Keahlian</a>
+                <a href="#projects" data-key="nav_projects" class="hover:text-primary transition-colors">Projek</a>
+                <a href="#contact" data-key="nav_contact" class="hover:text-primary transition-colors">Kontak</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div id="lang-switcher" class="flex items-center border rounded-full p-1 text-sm dark:border-gray-600">
+                    <button id="lang-id" class="px-3 py-1 rounded-full font-semibold">ID</button>
+                    <button id="lang-en" class="px-3 py-1 rounded-full">EN</button>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-secondary">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 016.465 3.636l.707.707a1 1 0 01-1.414 1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.465 16.364l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM13.535 16.364a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 011.414-1.414l.707.707z"></path></svg>
+                </button>
+                <button id="menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-dark-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#home" data-key="nav_home_mobile" class="block py-2 px-6 text-sm hover:bg-gray-200 dark:hover:bg-dark-secondary">Home</a>
+            <a href="#about" data-key="nav_about_mobile" class="block py-2 px-6 text-sm hover:bg-gray-200 dark:hover:bg-dark-secondary">Tentang</a>
+            <a href="#skills" data-key="nav_skills_mobile" class="block py-2 px-6 text-sm hover:bg-gray-200 dark:hover:bg-dark-secondary">Keahlian</a>
+            <a href="#projects" data-key="nav_projects_mobile" class="block py-2 px-6 text-sm hover:bg-gray-200 dark:hover:bg-dark-secondary">Projek</a>
+            <a href="#contact" data-key="nav_contact_mobile" class="block py-2 px-6 text-sm hover:bg-gray-200 dark:hover:bg-dark-secondary">Kontak</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('img/background.gif');">
+            <div class="absolute inset-0 bg-secondary/70"></div>
+
+            <div class="relative container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-center">
+                <div class="md:w-1/2 text-center md:text-left reveal">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white"><span data-key="hero_greeting">Halo, Saya</span> <span class="text-primary">Raki Albani</span></h1>
+                    
+                    <p data-key="hero_desc" class="mt-4 mb-6 max-w-lg mx-auto md:mx-0 text-gray-300">Saya adalah seorang fresh graduate dari Universitas Budi Luhur dengan semangat tinggi untuk memulai karir dalam desain 3D/2D dan pengembangan game. Saya berdedikasi untuk belajar dan menerapkan keterampilan saya dalam menciptakan dunia virtual yang imersif.</p>
+                    <div class="flex justify-center md:justify-start space-x-4 mb-8">
+                        <a href="#" class="p-3 rounded-full bg-gray-200/20 text-white dark:bg-dark-secondary/50 hover:bg-primary hover:text-white dark:hover:bg-primary transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="p-3 rounded-full bg-gray-200/20 text-white dark:bg-dark-secondary/50 hover:bg-primary hover:text-white dark:hover:bg-primary transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1 0-1.3-.5-2.4-1.3-3.2.1-.3.5-1.5-.1-3.2 0 0-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1c-.6 1.7-.2 2.9-.1 3.2-.8.8-1.3 1.9-1.3 3.2 0 4.6 2.7 5.7 5.5 6.1-.6.5-.9 1.2-.9 2.2V22"></path></svg>
+                        </a>
+                    </div>
+                    <a href="#projects" data-key="hero_button" class="inline-block my-6 bg-primary text-white font-medium py-3 px-6 rounded-lg hover:bg-pink-600 dark:hover:bg-pink-400 transition-all duration-300 transform hover:scale-105">Lihat Portofolio</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center mb-10 md:mb-0 reveal">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-pink-200/20 to-rose-200/20 dark:from-pink-900/50 dark:to-rose-900/50 overflow-hidden shadow-2xl backdrop-blur-sm">
+                        <img src="img/foto_profil.jpeg" alt="Foto Profil" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="bg-gradient-to-r from-gray-100 to-light-bg text-secondary dark:from-secondary dark:to-dark-bg dark:text-gray-300 overflow-hidden border-y dark:border-gray-700">
+    <div class="flex animate-scroll whitespace-nowrap">
+
+        <div class="flex flex-shrink-0">
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" title="Blender" alt="Blender Logo" class="h-10 w-10 ml-8"/>
+            </span>
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" title="Unity" alt="Unity Logo" class="h-10 w-10 ml-8"/>
+            </span>
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" title="Godot" alt="Godot Logo" class="h-10 w-10 ml-8"/>
+            </span>
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" title="Photoshop" alt="Photoshop Logo" class="h-10 w-10 ml-8"/>
+            </span>
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" title="Figma" alt="Figma Logo" class="h-10 w-10 ml-8"/>
+            </span>
+        </div>
+
+        <div class="flex flex-shrink-0">
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" title="Blender" alt="Blender Logo" class="h-10 w-10 ml-16"/>
+            </span>
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" title="Unity" alt="Unity Logo" class="h-10 w-10 ml-16"/>
+            </span>
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" title="Godot" alt="Godot Logo" class="h-10 w-10 ml-16"/>
+            </span>
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" title="Photoshop" alt="Photoshop Logo" class="h-10 w-10 ml-16"/>
+            </span>
+            <span class="flex items-center font-shadows text-4xl py-4 mr-16">
+                Welcome to my Portfolio
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" title="Figma" alt="Figma Logo" class="h-10 w-10 ml-16"/>
+            </span>
+        </div>
+        
+    </div>
+        </div>
+
+        <section id="about" class="py-20 bg-white dark:bg-dark-secondary">
+    <div class="container mx-auto px-6 reveal">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/3">
+                <img src="img/foto2.jpg" alt="Tentang Saya" class="rounded-2xl shadow-lg w-full">
+            </div>
+            <div class="md:w-2/3">
+                <h2 data-key="about_title" class="text-3xl font-bold text-center md:text-center mb-2">About Mehh</h2>
+                <p data-key="about_subtitle" class="text-center md:text-center text-gray-600 dark:text-gray-400 mb-6">Perkenalan singkat tentang diri saya.</p>
+
+                <p data-key="about_p1" class="mb-6 text-gray-700 dark:text-gray-300">
+                   Sebagai Mahasiswa Prodi Teknik Informatika Fakultas Teknologi Informasi di Universitas Budi Luhur, saya telah membangun fondasi yang kuat dalam seni digital dan teknologi. Saya sangat tertarik pada proses pembuatan aset 3D di Blender dan seni pixel di Aseprite, serta menerjemahkannya ke dalam pengalaman interaktif.
+                </p>
+                <p data-key="about_p2" class="mb-8 text-gray-700 dark:text-gray-300">
+                   Selama masa kuliah, saya aktif mengerjakan berbagai proyek pribadi dan tugas akademik yang mengasah kemampuan saya di Unity dan Godot. Saya seorang pembelajar yang cepat dan selalu antusias untuk menghadapi tantangan baru di industri kreatif.
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+                    <div class="p-4 bg-light-bg dark:bg-dark-bg rounded-lg">
+                        <h3 data-key="stat1_title" class="text-2xl font-bold text-primary">Lulusan 2025</h3>
+                        <p data-key="stat1_desc">Universitas Budi Luhur</p>
+                    </div>
+                    <div class="p-4 bg-light-bg dark:bg-dark-bg rounded-lg">
+                        <h3 data-key="stat2_title" class="text-2xl font-bold text-primary">5+</h3>
+                        <p data-key="stat2_desc">Projek Akademik</p>
+                    </div>
+                    <div class="p-4 bg-light-bg dark:bg-dark-bg rounded-lg col-span-2 sm:col-span-1">
+                        <h3 data-key="stat3_title" class="text-2xl font-bold text-primary">1</h3>
+                        <p data-key="stat3_desc">Partisipasi Game Jam</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6 reveal">
+                <h2 data-key="skills_title" class="text-3xl font-bold text-center mb-2">Keahlian</h2>
+                <p data-key="skills_subtitle" class="text-center text-gray-600 dark:text-gray-400 mb-12">Tingkat Kemampuan Teknis Saya</p>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white dark:bg-dark-secondary p-8 rounded-2xl shadow-lg">
+                        <h3 data-key="skills_box1_title" class="text-xl font-semibold text-center mb-6">Desain 3D & 2D</h3>
+                        <div class="space-y-5">
+                           <div class="flex items-center gap-4">
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" class="w-8 h-8"/>
+                               <div class="w-full">
+                                   <div class="flex justify-between mb-1"><span class="font-medium">Blender</span><span>85%</span></div>
+                                   <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5"><div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div></div>
+                               </div>
+                           </div>
+                           <div class="flex items-center gap-4">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-primary"><rect width="20" height="20" x="2" y="2" rx="2" ry="2"/><path d="M7 13h2l2-3 2 3h2"/><path d="M7 13v-3h10v3"/></svg>
+                               <div class="w-full">
+                                   <div class="flex justify-between mb-1"><span class="font-medium">Aseprite</span><span>80%</span></div>
+                                   <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5"><div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div></div>
+                               </div>
+                           </div>
+                           <div class="flex items-center gap-4">
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" class="w-8 h-8"/>
+                               <div class="w-full">
+                                   <div class="flex justify-between mb-1"><span class="font-medium">Adobe Photoshop</span><span>70%</span></div>
+                                   <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5"><div class="bg-primary h-2.5 rounded-full" style="width: 70%"></div></div>
+                               </div>
+                           </div>
+                           <div class="flex items-center gap-4">
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-8 h-8"/>
+                               <div class="w-full">
+                                   <div class="flex justify-between mb-1"><span class="font-medium">Figma</span><span>65%</span></div>
+                                   <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5"><div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div></div>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-dark-secondary p-8 rounded-2xl shadow-lg">
+                        <h3 data-key="skills_box2_title" class="text-xl font-semibold text-center mb-6">Game Development</h3>
+                        <div class="space-y-5">
+                           <div class="flex items-center gap-4">
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" class="w-8 h-8"/>
+                               <div class="w-full">
+                                   <div class="flex justify-between mb-1"><span class="font-medium">Unity</span><span>85%</span></div>
+                                   <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5"><div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div></div>
+                               </div>
+                           </div>
+                           <div class="flex items-center gap-4">
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" class="w-8 h-8"/>
+                               <div class="w-full">
+                                   <div class="flex justify-between mb-1"><span class="font-medium">Godot Engine</span><span>75%</span></div>
+                                   <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5"><div class="bg-primary h-2.5 rounded-full" style="width: 75%"></div></div>
+                               </div>
+                           </div>
+                           <div class="flex items-center gap-4">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-primary"><path d="M21 11.23a2.23 2.23 0 0 0-1.24-2.11l-6.1-2.61a2.23 2.23 0 0 0-2.32 0l-6.1 2.61A2.23 2.23 0 0 0 4 11.23v1.54a2.23 2.23 0 0 0 1.24 2.11l6.1 2.61a2.23 2.23 0 0 0 2.32 0l6.1-2.61A2.23 2.23 0 0 0 20 12.77V11.23Z"/><path d="m4.24 15.34 1.41 3.54A2.23 2.23 0 0 0 7.77 20h8.46a2.23 2.23 0 0 0 2.12-1.12l1.41-3.54"/><path d="M12 22V17.5"/></svg>
+                               <div class="w-full">
+                                   <div class="flex justify-between mb-1"><span class="font-medium">Roblox Studio</span><span>75%</span></div>
+                                   <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5"><div class="bg-primary h-2.5 rounded-full" style="width: 75%"></div></div>
+                               </div>
+                           </div>
+                            <div class="flex items-center gap-4">
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-8 h-8"/>
+                               <div class="w-full">
+                                   <div class="flex justify-between mb-1"><span class="font-medium">Git</span><span>80%</span></div>
+                                   <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5"><div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div></div>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 bg-white dark:bg-dark-secondary">
+            <div class="container mx-auto px-6 reveal">
+                <h2 data-key="projects_title" class="text-3xl font-bold text-center mb-2">Projek</h2>
+                <p data-key="projects_subtitle" class="text-center text-gray-600 dark:text-gray-400 mb-12">Karya Akademik & Pribadi Saya</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-light-bg dark:bg-dark-bg rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/a78bfa/ffffff?text=3D+Diorama" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 data-key="proj1_title" class="text-xl font-semibold mb-2">"Low-Poly World"</h3>
+                            <p data-key="proj1_desc" class="text-sm text-gray-600 dark:text-gray-400 mb-4">Proyek tugas akhir mata kuliah Pemodelan 3D. Diorama fantasi low-poly yang dibuat sepenuhnya di Blender.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" data-key="proj1_link1" class="text-primary hover:underline">Lihat di ArtStation</a>
+                                <a href="#" data-key="proj1_link2" class="text-primary hover:underline">Detail Proyek</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light-bg dark:bg-dark-bg rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/f472b6/ffffff?text=Pixel+Art" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 data-key="proj2_title" class="text-xl font-semibold mb-2">"Pixel Knights"</h3>
+                            <p data-key="proj2_desc" class="text-sm text-gray-600 dark:text-gray-400 mb-4">Proyek pribadi untuk mengeksplorasi seni pixel. Koleksi aset karakter dan animasi untuk prototipe game RPG dibuat dengan Aseprite.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" data-key="proj2_link1" class="text-primary hover:underline">Lihat di Itch.io</a>
+                                <a href="#" data-key="proj2_link2" class="text-primary hover:underline">Detail Proyek</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light-bg dark:bg-dark-bg rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/60a5fa/ffffff?text=Unity+Game" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 data-key="proj3_title" class="text-xl font-semibold mb-2">"Platformer Jam"</h3>
+                            <p data-key="proj3_desc" class="text-sm text-gray-600 dark:text-gray-400 mb-4">Hasil dari partisipasi Game Jam selama 48 jam. Prototipe game platformer 2.5D yang dikembangkan di Unity.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" data-key="proj3_link1" class="text-primary hover:underline">Mainkan Demo</a>
+                                <a href="#" data-key="proj3_link2" class="text-primary hover:underline">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6 reveal">
+                <h2 data-key="contact_title" class="text-3xl font-bold text-center mb-2">Hubungi Saya</h2>
+                <p data-key="contact_subtitle" class="text-center text-gray-600 dark:text-gray-400 mb-12">Mari berkolaborasi dalam sebuah projek!</p>
+                <div class="bg-white dark:bg-dark-secondary rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
+                    <form id="contact-form">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <input type="text" data-key="contact_name" placeholder="Nama Anda" required class="w-full p-3 rounded-lg bg-light-bg dark:bg-dark-bg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input type="email" data-key="contact_email" placeholder="Email Anda" required class="w-full p-3 rounded-lg bg-light-bg dark:bg-dark-bg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <textarea data-key="contact_message" placeholder="Pesan Anda" rows="5" required class="w-full mt-6 p-3 rounded-lg bg-light-bg dark:bg-dark-bg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        <div class="text-center mt-6">
+                            <button type="submit" data-key="contact_button" class="bg-primary text-white font-medium py-3 px-8 rounded-lg hover:bg-pink-600 dark:hover:bg-pink-400 transition-all duration-300">Kirim Pesan</button>
+                        </div>
+                    </form>
+                    <div id="form-message" class="text-center mt-4"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-secondary dark:bg-black py-12">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <h3 data-key="footer_name" class="text-2xl font-bold text-white mb-2">Raki Albani</h3>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#about" data-key="footer_about" class="hover:text-primary transition-colors">Tentang</a>
+                <a href="#projects" data-key="footer_projects" class="hover:text-primary transition-colors">Projek</a>
+                <a href="#contact" data-key="footer_contact" class="hover:text-primary transition-colors">Kontak</a>
+            </div>
+             <div class="flex justify-center space-x-4 mb-8">
+                <a href="#" class="p-2 rounded-full bg-gray-700 hover:bg-primary transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="#" class="p-2 rounded-full bg-gray-700 hover:bg-primary transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1 0-1.3-.5-2.4-1.3-3.2.1-.3.5-1.5-.1-3.2 0 0-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1c-.6 1.7-.2 2.9-.1 3.2-.8.8-1.3 1.9-1.3 3.2 0 4.6 2.7 5.7 5.5 6.1-.6.5-.9 1.2-.9 2.2V22"></path></svg>
+                </a>
+            </div>
+            <p>&copy; <span id="year"></span> Raki Albani. <span data-key="footer_rights">Semua hak dilindungi.</span></p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
