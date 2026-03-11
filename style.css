@@ -382,10 +382,10 @@ body.hovered #cur-ring {
   object-fit: cover;
   border-radius: 10px;
   
-  /* TAMBAHKAN OUTLINE (Garis Tepi) dengan warna pink neon */
-  border: 4px solid #FF5FCF; 
-  /* Berikan shadow halus untuk efek kedalaman */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  /* Outline hitam tipis saat tidak di-hover */
+  border: 2px solid #141414; 
+  /* Shadow dihilangkan saat tidak di-hover */
+  box-shadow: none; 
   
   position: absolute;
   inset: 0;
@@ -396,8 +396,8 @@ body.hovered #cur-ring {
 
 .poker-card:hover .profile-img-3d {
   transform: translate3d(0px, 0px, 25px);
-  /* Perkuat shadow saat hover untuk menonjolkan */
-  box-shadow: -5px 10px 20px rgba(0,0,0,0.5);
+  /* Shadow baru muncul HANYA saat kartu di-hover */
+  box-shadow: -8px 12px 20px rgba(0,0,0,0.6);
 }
 
 /* Tulisan Nama dan Shadow Transparan sudah DIHAPUS dari sini */
