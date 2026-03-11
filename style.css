@@ -327,123 +327,180 @@ body.hovered #cur-ring {
 /* ══════════════════════════════════════════
    3D PROFILE CARD (UIVERSE.IO)
 ══════════════════════════════════════════ */
+/* ══════════════════════════════════════════
+   3D PROFILE CARD (POKER HEART - IMTAUSEF)
+══════════════════════════════════════════ */
 .parent {
   width: 290px;
-  height: 300px;
+  height: 410px; /* Diperpanjang ke bawah agar proporsinya seperti kartu asli */
+  padding: 0;
   perspective: 1000px;
-  position: relative;
   z-index: 20;
 }
 
 .card {
+  width: 100%;
   height: 100%;
-  border-radius: 50px;
-  /* Disesuaikan dengan tema warna ungu/pink websitemu */
-  background: linear-gradient(135deg, #FF5FCF 0%, #9929EA 100%);
-  transition: all 0.5s ease-in-out;
+  border-radius: 15px; /* Sudut melengkung khas kartu */
+  border: 3px solid #141414;
   transform-style: preserve-3d;
-  box-shadow:
-    rgba(37, 5, 71, 0) 40px 50px 25px -40px,
-    rgba(34, 5, 71, 0.2) 0px 25px 25px -5px;
+  /* Warna dasar kartu putih dengan tekstur titik halus */
+  background-color: #f3f3f3;
+  background-image: radial-gradient(#d5d5d5 1.5px, transparent 1.5px);
+  background-size: 15px 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 30px -10px;
+  transition: all 0.5s ease-in-out;
   position: relative;
-  z-index: 1;
 }
 
-.glass {
+.card:hover {
+  background-position: -15px 15px;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+  box-shadow: rgba(255, 95, 207, 0.25) 30px 50px 30px -15px;
+}
+
+/* Kotak Konten Utama di Tengah */
+.content-box {
+  background: #141414;
+  border: 2px solid #333;
+  border-radius: 12px;
+  transition: all 0.5s ease-in-out;
+  padding: 20px;
   transform-style: preserve-3d;
+  
+  /* Diposisikan tepat di tengah kartu */
   position: absolute;
-  inset: 8px;
-  border-radius: 55px;
-  border-top-right-radius: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.6) 100%
-  );
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  transform: translate3d(0px, 0px, 25px);
-  border-left: 1px solid rgba(255,255,255,0.5);
-  border-bottom: 1px solid rgba(255,255,255,0.5);
-  transition: all 0.5s ease-in-out;
+  inset: 45px 30px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.content {
-  transform: translate3d(0, 0, 26px);
-  position: relative;
-  z-index: 10;
+.card:hover .content-box {
+  background: #1a1a1a;
+  transform: translate3d(0px, 0px, 40px);
+  box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
 }
 
-.content .title {
-  display: block;
-  color: #fff;
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 22px;
-}
-
-.content .text {
-  display: block;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-/* Animasi khusus untuk foto profil agar ikut melayang 3D */
+/* Foto Profil Melayang (Menggantikan posisi logo) */
 .profile-img-3d {
-  transform: translate3d(0, 0, 30px);
-  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-}
-
-.logo {
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform-style: preserve-3d;
-  z-index: 5;
-}
-
-.logo .circle {
-  display: block;
-  position: absolute;
-  aspect-ratio: 1;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
-  top: 0;
-  right: 0;
-  box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.2);
+  border: 3px solid #FF5FCF;
   transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 30px);
+  background: #fff;
+  margin-bottom: 15px;
 }
 
-.logo .circle1 { width: 170px; transform: translate3d(0, 0, 20px); top: 8px; right: 8px; }
-.logo .circle2 { width: 140px; transform: translate3d(0, 0, 40px); top: 10px; right: 10px; -webkit-backdrop-filter: blur(1px); backdrop-filter: blur(1px); transition-delay: 0.1s; }
-.logo .circle3 { width: 110px; transform: translate3d(0, 0, 60px); top: 17px; right: 17px; transition-delay: 0.2s; }
-.logo .circle4 { width: 80px; transform: translate3d(0, 0, 80px); top: 23px; right: 23px; transition-delay: 0.3s; }
-.logo .circle5 { width: 50px; transform: translate3d(0, 0, 100px); top: 30px; right: 30px; transition-delay: 0.4s; }
-
-/* HOVER EFFECTS */
-.parent:hover .card {
-  transform: rotate3d(1, 1, 0, 30deg);
-  box-shadow:
-    rgba(153, 41, 234, 0.3) 30px 50px 25px -40px,
-    rgba(255, 95, 207, 0.2) 0px 25px 30px 0px;
+.card:hover .profile-img-3d {
+  transform: translate3d(0px, 0px, 80px) scale(1.15);
+  box-shadow: -10px 15px 15px rgba(0,0,0,0.6);
 }
 
-.parent:hover .profile-img-3d {
-  transform: translate3d(0, 0, 70px) scale(1.05);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+.content-box .card-title {
+  display: inline-block;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 30px);
 }
 
-.parent:hover .card .logo .circle2 { transform: translate3d(0, 0, 60px); background: rgba(255, 255, 255, 0.3); }
-.parent:hover .card .logo .circle3 { transform: translate3d(0, 0, 80px); background: rgba(255, 255, 255, 0.4); }
-.parent:hover .card .logo .circle4 { transform: translate3d(0, 0, 100px); background: rgba(255, 255, 255, 0.5); }
-.parent:hover .card .logo .circle5 { transform: translate3d(0, 0, 120px); background: rgba(255, 255, 255, 0.6); }
+.card:hover .card-title {
+  transform: translate3d(0px, 0px, 60px);
+  color: #FAEB92; /* Warna berubah jadi kuning saat dihover */
+}
 
+.content-box .card-content {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 25px);
+  line-height: 1.4;
+}
+
+.card:hover .card-content {
+  transform: translate3d(0px, 0px, 50px);
+  color: #fff;
+}
+
+/* Tombol kecil */
+.content-box .see-more {
+  cursor: pointer;
+  margin-top: 15px;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #141414;
+  border-radius: 5px;
+  background: #FF5FCF;
+  padding: 0.5rem 0.8rem;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 20px);
+}
+
+.card:hover .see-more {
+  transform: translate3d(0px, 0px, 70px);
+  background: #9929EA;
+  color: #fff;
+}
+
+/* ── Simbol Ujung Kartu Poker ── */
+.date-box {
+  position: absolute;
+  background: transparent;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+}
+
+.date-box span { display: block; line-height: 1; }
+
+.date-box .rank {
+  color: #141414;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.date-box .suit {
+  font-size: 34px;
+  font-weight: 900;
+  color: #FF5FCF; /* Menggunakan aksen pink untuk hati */
+  margin-top: -4px;
+}
+
+.top-left-suit {
+  top: 12px;
+  left: 14px;
+  transform: translate3d(0px, 0px, 15px);
+}
+
+/* Dibuat terbalik persis seperti kartu remi */
+.bottom-right-suit {
+  bottom: 12px;
+  right: 14px;
+  transform: rotate(180deg) translate3d(0px, 0px, -15px);
+}
+
+.card:hover .top-left-suit {
+  transform: translate3d(0px, 0px, 40px);
+}
+
+.card:hover .bottom-right-suit {
+  transform: rotateZ(180deg) translate3d(0px, 0px, 40px);
+}
+
+/* Mobile responsive */
 @media (max-width: 600px) {
-  .parent {
-    width: 250px;
-    height: 280px;
-  }
+  .parent { width: 250px; height: 360px; }
+  .content-box { inset: 35px 25px; padding: 15px; }
+  .profile-img-3d { width: 80px; height: 80px; margin-bottom: 10px;}
+  .content-box .card-title { font-size: 18px; }
 }
