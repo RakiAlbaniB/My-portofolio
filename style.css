@@ -402,40 +402,37 @@ body.hovered #cur-ring {
 
 /* Tulisan Nama dan Shadow Transparan sudah DIHAPUS dari sini */
 
-/* Tulisan di Pojok Kartu (3D Designer & Game Developer) */
+/* Ikon di Pojok Kartu */
 .date-box {
   position: absolute;
   background: transparent;
   transform-style: preserve-3d;
   transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.date-box span { display: block; line-height: 1.1; }
-
-.date-box .rank {
-  color: #141414;
-  font-size: 13px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.date-box span { 
+  line-height: 1; 
 }
 
+/* Ukuran dan warna hati outline hitam */
 .date-box .suit {
-  font-size: 20px;
-  color: #FF5FCF; 
+  font-size: 26px; 
+  color: #141414; /* Warna hitam */
+  font-weight: 900;
 }
 
 .top-left-suit {
-  top: 10px;
+  top: 15px;
   left: 15px;
-  text-align: left;
   transform: translate3d(0px, 0px, 15px);
 }
 
 .bottom-right-suit {
-  bottom: 10px;
+  bottom: 15px;
   right: 15px;
-  text-align: right;
   transform: translate3d(0px, 0px, 15px) rotateZ(180deg);
 }
 
@@ -451,7 +448,5 @@ body.hovered #cur-ring {
 @media (max-width: 600px) {
   .parent { width: 250px; height: 360px; }
   .content-box { inset: 35px 20px; }
-  .name-overlay { padding-bottom: 15px; }
-  .content-box .card-title { font-size: 18px; }
-  .date-box .rank { font-size: 11px; }
+  .date-box .suit { font-size: 20px; }
 }
