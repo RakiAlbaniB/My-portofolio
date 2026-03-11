@@ -14,21 +14,26 @@ body { transition: background-color 0.4s ease, color 0.35s ease; }
 /* ══════════════════════════════════════════
    CUSTOM CURSOR (only on pointer devices)
 ══════════════════════════════════════════ */
-@media (pointer: fine) {
-  * { cursor: none !important; }
-  #cur-dot,
-  #cur-ring,
-  #cur-shape { display: block; }
-}
-
+/* 1. Default: Sembunyikan kursor kustom untuk semua perangkat (terutama HP) */
 #cur-dot,
 #cur-ring,
 #cur-shape {
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
-  display: none; /* shown only on pointer:fine */
+  display: none; 
+}
+
+/* 2. Aktifkan kursor kustom HANYA jika perangkat punya mouse (mendukung hover & akurat) */
+@media (hover: hover) and (pointer: fine) {
+  * { 
+    cursor: none !important; 
+  }
+  #cur-dot,
+  #cur-ring,
+  #cur-shape { 
+    display: block; 
+  }
 }
 
 #cur-dot {

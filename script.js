@@ -174,6 +174,9 @@ function closeMenu() {
 /* ──────────────────────────────────────────
    CUSTOM CURSOR
 ────────────────────────────────────────── */
+/* ──────────────────────────────────────────
+   CUSTOM CURSOR
+────────────────────────────────────────── */
 const curDot   = document.getElementById('cur-dot');
 const curRing  = document.getElementById('cur-ring');
 const curShape = document.getElementById('cur-shape');
@@ -181,13 +184,30 @@ const curShape = document.getElementById('cur-shape');
 let mx = 0, my = 0;
 let rx = 0, ry = 0;
 let sx = 0, sy = 0;
+let isTouchDevice = false; // Flag untuk mendeteksi layar sentuh
 
+// Jika layar disentuh, matikan kursor kustom sepenuhnya
+document.addEventListener('touchstart', () => {
+  isTouchDevice = true;
+  curDot.style.display = 'none';
+  curRing.style.display = 'none';
+  curShape.style.display = 'none';
+  
+  // Kembalikan kursor default untuk elemen yang mungkin masih ter-hidden
+  document.body.style.cursor = 'auto'; 
+  document.querySelectorAll('*').forEach(el => el.style.cursor = 'auto');
+}, { once: true }); // event ini cukup dijalankan sekali saja
+
+// Update koordinat hanya jika bukan perangkat touch
 document.addEventListener('mousemove', e => {
+  if (isTouchDevice) return; 
   mx = e.clientX;
   my = e.clientY;
 });
 
 (function animCursor() {
+  if (isTouchDevice) return; // Hentikan animasi jika layar sentuh
+
   rx += (mx - rx) * 0.16;
   ry += (my - ry) * 0.16;
   sx += (mx - sx) * 0.07;
@@ -204,6 +224,7 @@ document.addEventListener('mousemove', e => {
 })();
 
 document.addEventListener('mouseover', e => {
+  if (isTouchDevice) return;
   if (e.target.closest('a, button')) {
     document.body.classList.add('hovered');
   } else {
