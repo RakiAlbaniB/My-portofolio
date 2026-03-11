@@ -375,13 +375,18 @@ body.hovered #cur-ring {
   transform: translate3d(0px, 0px, 40px);
 }
 
-/* Foto Profil Memenuhi Area Tengah */
+/* Foto Profil Memenuhi Area Tengah - Diberi Outline */
 .profile-img-3d {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  
+  /* TAMBAHKAN OUTLINE (Garis Tepi) dengan warna pink neon */
+  border: 4px solid #FF5FCF; 
+  /* Berikan shadow halus untuk efek kedalaman */
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -391,50 +396,11 @@ body.hovered #cur-ring {
 
 .poker-card:hover .profile-img-3d {
   transform: translate3d(0px, 0px, 25px);
+  /* Perkuat shadow saat hover untuk menonjolkan */
   box-shadow: -5px 10px 20px rgba(0,0,0,0.5);
 }
 
-/* Shadow Transparan (Gradient) di Bawah Nama */
-.name-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10%; /* Ditinggikan agar gradasi punya ruang lebih untuk memudar */
-  
-  /* Gradasi hitam dibuat jauh lebih halus menyatu dengan foto */
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0) 100%);
-  
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  z-index: 10;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 20px;
-  transform: translate3d(0px, 0px, 15px);
-  transition: all 0.5s ease-in-out;
-  text-align: center;
-}
-
-.poker-card:hover .name-overlay {
-  transform: translate3d(0px, 0px, 50px);
-  /* Warnanya jadi sedikit lebih tebal saat di-hover agar teks lebih terbaca */
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
-}
-
-.content-box .card-title {
-  display: inline-block;
-  color: #fff;
-  font-size: 22px;
-  font-weight: 900;
-  transition: all 0.5s ease-in-out;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-}
-
-.poker-card:hover .card-title {
-  color: #FAEB92; 
-}
+/* Tulisan Nama dan Shadow Transparan sudah DIHAPUS dari sini */
 
 /* Tulisan di Pojok Kartu (3D Designer & Game Developer) */
 .date-box {
@@ -442,38 +408,34 @@ body.hovered #cur-ring {
   background: transparent;
   transform-style: preserve-3d;
   transition: all 0.5s ease-in-out;
-  /* Menggunakan flexbox agar teks dan hati berjejer menyamping */
-  display: flex;
-  align-items: center;
-  gap: 4px; /* Jarak antara teks dan gambar hati */
 }
 
-.date-box span { 
-  line-height: 1; 
-}
+.date-box span { display: block; line-height: 1.1; }
 
 .date-box .rank {
   color: #141414;
-  font-size: 10px; /* Ukuran teks diperkecil (sebelumnya 13px) */
+  font-size: 13px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .date-box .suit {
-  font-size: 16px; /* Ukuran hati disesuaikan agar proporsional dengan teks */
+  font-size: 20px;
   color: #FF5FCF; 
 }
 
 .top-left-suit {
-  top: 15px;
+  top: 10px;
   left: 15px;
+  text-align: left;
   transform: translate3d(0px, 0px, 15px);
 }
 
 .bottom-right-suit {
-  bottom: 15px;
+  bottom: 10px;
   right: 15px;
+  text-align: right;
   transform: translate3d(0px, 0px, 15px) rotateZ(180deg);
 }
 
@@ -491,7 +453,5 @@ body.hovered #cur-ring {
   .content-box { inset: 35px 20px; }
   .name-overlay { padding-bottom: 15px; }
   .content-box .card-title { font-size: 18px; }
-  /* Huruf dan hati dibuat lebih kecil lagi saat dibuka di HP */
-  .date-box .rank { font-size: 8px; } 
-  .date-box .suit { font-size: 12px; }
+  .date-box .rank { font-size: 11px; }
 }
