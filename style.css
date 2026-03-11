@@ -356,127 +356,111 @@ body.hovered #cur-ring {
   box-shadow: rgba(255, 95, 207, 0.25) 30px 50px 30px -15px;
 }
 
+/* Kotak untuk membungkus Foto */
 .content-box {
   background: #141414;
   border: 2px solid #333;
   border-radius: 12px;
   transition: all 0.5s ease-in-out;
-  padding: 20px;
+  padding: 0; 
   transform-style: preserve-3d;
   position: absolute;
-  inset: 45px 30px; 
+  inset: 45px 25px; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .poker-card:hover .content-box {
-  background: #1a1a1a;
   transform: translate3d(0px, 0px, 40px);
-  box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
+  box-shadow: -10px 10px 20px rgba(0,0,0,0.4);
 }
 
+/* Foto Profil Menutupi Kotak Sepenuhnya */
 .profile-img-3d {
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  border: 3px solid #FF5FCF;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   transition: all 0.5s ease-in-out;
-  transform: translate3d(0px, 0px, 30px);
-  background: #fff;
-  margin-bottom: 15px;
+  transform: translate3d(0px, 0px, 5px);
 }
 
 .poker-card:hover .profile-img-3d {
-  transform: translate3d(0px, 0px, 80px) scale(1.15);
-  box-shadow: -10px 15px 15px rgba(0,0,0,0.6);
+  transform: translate3d(0px, 0px, 25px);
+  box-shadow: -5px 10px 20px rgba(0,0,0,0.6);
+}
+
+/* Teks Nama yang mengambang di atas foto */
+.name-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transform: translate3d(0px, 0px, 15px);
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.8);
+}
+
+.poker-card:hover .name-overlay {
+  transform: translate3d(0px, 0px, 50px);
 }
 
 .content-box .card-title {
   display: inline-block;
   color: #fff;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 900;
   transition: all 0.5s ease-in-out;
-  transform: translate3d(0px, 0px, 30px);
 }
 
 .poker-card:hover .card-title {
-  transform: translate3d(0px, 0px, 60px);
   color: #FAEB92; 
 }
 
-.content-box .card-content {
-  margin-top: 5px;
-  font-size: 12px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
-  transition: all 0.5s ease-in-out;
-  transform: translate3d(0px, 0px, 25px);
-  line-height: 1.4;
-}
-
-.poker-card:hover .card-content {
-  transform: translate3d(0px, 0px, 50px);
-  color: #fff;
-}
-
-.content-box .see-more {
-  cursor: pointer;
-  margin-top: 15px;
-  display: inline-block;
-  font-weight: 900;
-  font-size: 10px;
-  text-transform: uppercase;
-  color: #141414;
-  border-radius: 5px;
-  background: #FF5FCF;
-  padding: 0.5rem 0.8rem;
-  transition: all 0.5s ease-in-out;
-  transform: translate3d(0px, 0px, 20px);
-}
-
-.poker-card:hover .see-more {
-  transform: translate3d(0px, 0px, 70px);
-  background: #9929EA;
-  color: #fff;
-}
-
+/* Tulisan di Pojok Kartu */
 .date-box {
   position: absolute;
   background: transparent;
   transform-style: preserve-3d;
   transition: all 0.5s ease-in-out;
-  text-align: center;
 }
 
-.date-box span { display: block; line-height: 1; }
+.date-box span { display: block; line-height: 1.1; }
 
 .date-box .rank {
   color: #141414;
-  font-size: 26px;
+  font-size: 13px;
   font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .date-box .suit {
-  font-size: 34px;
-  font-weight: 900;
+  font-size: 20px;
   color: #FF5FCF; 
-  margin-top: -4px;
 }
 
 .top-left-suit {
-  top: 12px;
-  left: 14px;
+  top: 10px;
+  left: 15px;
+  text-align: left;
   transform: translate3d(0px, 0px, 15px);
 }
 
 .bottom-right-suit {
-  bottom: 12px;
-  right: 14px;
-  transform: rotate(180deg) translate3d(0px, 0px, -15px);
+  bottom: 10px;
+  right: 15px;
+  text-align: right;
+  /* Koordinat Z dibuat positif (15px) agar SELALU tampil di depan kartu */
+  transform: translate3d(0px, 0px, 15px) rotateZ(180deg);
 }
 
 .poker-card:hover .top-left-suit {
@@ -484,12 +468,14 @@ body.hovered #cur-ring {
 }
 
 .poker-card:hover .bottom-right-suit {
-  transform: rotateZ(180deg) translate3d(0px, 0px, 40px);
+  transform: translate3d(0px, 0px, 40px) rotateZ(180deg);
 }
 
+/* Responsif Mobile */
 @media (max-width: 600px) {
   .parent { width: 250px; height: 360px; }
-  .content-box { inset: 35px 25px; padding: 15px; }
-  .profile-img-3d { width: 80px; height: 80px; margin-bottom: 10px;}
+  .content-box { inset: 35px 20px; }
+  .name-overlay { bottom: 15px; }
   .content-box .card-title { font-size: 18px; }
+  .date-box .rank { font-size: 11px; }
 }
