@@ -128,19 +128,31 @@
   ════════════════════════════════════ -->
   <section id="home" class="relative z-10 min-h-screen flex items-center sec-pad pt-28">
     <div class="inner">
-      <div class="hero-inner">
+      <div class="hero-inner"> 
 
-        <!-- Profile photo -->
-        <div class="hero-img-wrap float-anim fade-up">
-          <img src="https://rakialbanibadrawi.vercel.app/img/foto_profil.jpeg" alt="Raki Albani"
-            class="w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full object-cover profile-glow flex-shrink-0"
-            style="border: 3px solid transparent;
-                   background: linear-gradient(var(--imgbg,#000), var(--imgbg,#000)) padding-box,
-                               linear-gradient(135deg,#9929EA,#FF5FCF,#FAEB92) border-box;"
-            onerror="this.style.opacity='.3'"/>
+        <div class="parent float-anim fade-up mx-auto md:mx-0 flex-shrink-0">
+          <div class="card">
+            <div class="glass"></div>
+            
+            <div class="logo">
+              <span class="circle circle1"></span>
+              <span class="circle circle2"></span>
+              <span class="circle circle3"></span>
+              <span class="circle circle4"></span>
+              <span class="circle circle5"></span>
+            </div>
+
+            <div class="content flex flex-col items-center text-center" style="padding: 40px 20px 0px 20px;">
+              <img src="https://rakialbanibadrawi.vercel.app/img/foto_profil.jpeg" 
+                   alt="Raki Albani" 
+                   class="profile-img-3d w-28 h-28 object-cover rounded-full border-[3px] border-white/40 shadow-xl" />
+              
+              <span class="title mt-4 tracking-tight">Raki Albani</span>
+              <span class="text leading-snug">3D Designer &<br>Game Developer</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Hero text -->
         <div class="hero-text-wrap fade-up">
           <h1 class="font-display font-extrabold tracking-tight leading-none mb-4"
               style="font-size: clamp(2.6rem, 8vw, 5.5rem)">
@@ -159,9 +171,7 @@
           </div>
         </div>
 
-      </div>
-    </div>
-    <!-- Scroll hint -->
+      </div> </div>
     <div class="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-25 animate-bounce text-xs uppercase tracking-widest font-semibold select-none hidden sm:block">
       ↓ scroll
     </div>
