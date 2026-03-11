@@ -439,34 +439,38 @@ body.hovered #cur-ring {
   background: transparent;
   transform-style: preserve-3d;
   transition: all 0.5s ease-in-out;
+  /* Menggunakan flexbox agar teks dan hati berjejer menyamping */
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Jarak antara teks dan gambar hati */
 }
 
-.date-box span { display: block; line-height: 1.1; }
+.date-box span { 
+  line-height: 1; 
+}
 
 .date-box .rank {
   color: #141414;
-  font-size: 13px;
+  font-size: 10px; /* Ukuran teks diperkecil (sebelumnya 13px) */
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .date-box .suit {
-  font-size: 20px;
+  font-size: 16px; /* Ukuran hati disesuaikan agar proporsional dengan teks */
   color: #FF5FCF; 
 }
 
 .top-left-suit {
-  top: 10px;
+  top: 15px;
   left: 15px;
-  text-align: left;
   transform: translate3d(0px, 0px, 15px);
 }
 
 .bottom-right-suit {
-  bottom: 10px;
+  bottom: 15px;
   right: 15px;
-  text-align: right;
   transform: translate3d(0px, 0px, 15px) rotateZ(180deg);
 }
 
@@ -484,5 +488,7 @@ body.hovered #cur-ring {
   .content-box { inset: 35px 20px; }
   .name-overlay { padding-bottom: 15px; }
   .content-box .card-title { font-size: 18px; }
-  .date-box .rank { font-size: 11px; }
+  /* Huruf dan hati dibuat lebih kecil lagi saat dibuka di HP */
+  .date-box .rank { font-size: 8px; } 
+  .date-box .suit { font-size: 12px; }
 }
