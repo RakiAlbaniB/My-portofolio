@@ -378,8 +378,46 @@ const skillsSec = document.getElementById('skills');
 if (skillsSec) barObs.observe(skillsSec);
 
 /* ──────────────────────────────────────────
+   INTRO ANIMATION
+────────────────────────────────────────── */
+function playIntro() {
+  const greetings = ['Hello', 'Bonjour', 'Hola', 'Ciao', 'こんにちは', 'Hallo', 'Halo'];
+  const overlay = document.getElementById('intro-overlay');
+  const textEl = document.getElementById('intro-text');
+  
+  if (!overlay || !textEl) return;
+
+  document.body.style.overflow = 'hidden';
+  window.scrollTo(0, 0);
+
+  let step = 0;
+
+  function nextGreeting() {
+    if (step < greetings.length) {
+      textEl.textContent = greetings[step];
+      textEl.style.opacity = '1';
+      
+      setTimeout(() => {
+        textEl.style.opacity = '0';
+        step++;
+        setTimeout(nextGreeting, 400); // Wait for fade out
+      }, 500); // Display time
+    } else {
+      setTimeout(() => {
+        overlay.style.transform = 'translateY(-100%)';
+        document.body.style.overflow = '';
+        setTimeout(() => overlay.remove(), 1000);
+      }, 200);
+    }
+  }
+  
+  setTimeout(nextGreeting, 300);
+}
+
+/* ──────────────────────────────────────────
    INIT
 ────────────────────────────────────────── */
 applyLang();
 applyPill();
 updateNav();
+playIntro();
